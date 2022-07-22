@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,19 +24,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQ9-Sg-h8D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="326"/>
+            <point key="canvasLocation" x="529" y="370"/>
         </scene>
         <!--Popular-->
         <scene sceneID="mWv-fH-A7j">
             <objects>
-                <viewController id="l3j-3M-NI8" sceneMemberID="viewController">
+                <viewController id="l3j-3M-NI8" customClass="PopularMovieViewController" customModule="MovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VtJ-cG-oIr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhF-Ex-6hv">
+                                <rect key="frame" x="20" y="64" width="96" height="35"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="YLn-Uh-Dvz">
+                                <rect key="frame" x="0.0" y="108" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3ar-dI-Oyw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="BackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YLn-Uh-Dvz" firstAttribute="leading" secondItem="3ar-dI-Oyw" secondAttribute="leading" id="QmW-AK-3pX"/>
+                            <constraint firstItem="KhF-Ex-6hv" firstAttribute="top" secondItem="3ar-dI-Oyw" secondAttribute="top" constant="20" id="bTD-54-GVQ"/>
+                            <constraint firstItem="YLn-Uh-Dvz" firstAttribute="top" secondItem="KhF-Ex-6hv" secondAttribute="bottom" constant="9" id="mC3-T9-4Gq"/>
+                            <constraint firstItem="KhF-Ex-6hv" firstAttribute="leading" secondItem="3ar-dI-Oyw" secondAttribute="leading" constant="20" id="nBa-f2-rKg"/>
+                            <constraint firstItem="YLn-Uh-Dvz" firstAttribute="trailing" secondItem="3ar-dI-Oyw" secondAttribute="trailing" id="rQu-P7-uIG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Popular" image="film" catalog="system" id="hmA-cV-e8o"/>
+                    <connections>
+                        <outlet property="mainView" destination="VtJ-cG-oIr" id="mCw-1e-EP0"/>
+                        <outlet property="searchBar" destination="YLn-Uh-Dvz" id="cko-Vn-5y4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDz-tX-PLm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,6 +87,9 @@
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="film" catalog="system" width="128" height="93"/>
+        <namedColor name="BackgroundColor">
+            <color red="0.011764705882352941" green="0.1416456401348114" blue="0.2514747679233551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
