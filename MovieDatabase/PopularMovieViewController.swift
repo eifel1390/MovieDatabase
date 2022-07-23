@@ -14,6 +14,9 @@ class PopularMovieViewController: UIViewController, UISearchResultsUpdating {
     
     let searchController = UISearchController()
     
+    var searchTimer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,11 +28,16 @@ class PopularMovieViewController: UIViewController, UISearchResultsUpdating {
     }
     
     func updateSearchResults(for searchController: UISearchController) {
+        
+        self.searchTimer?.invalidate()
+        
         guard let text = searchController.searchBar.text else {
             return
         }
-        fetchData(input: text)
-        //print(text)
+        
+        searchTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
+            self.fetchData(input: text)
+        }
     }
     
     private func setSearchBarStyle() {
